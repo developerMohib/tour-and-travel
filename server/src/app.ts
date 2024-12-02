@@ -2,6 +2,7 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 const app: Application = express();
 import cors from 'cors';
 import userRoute from './models/user/user.routes';
+import tourRouter from './models/tour/tour.routes';
 
 // middle ware
 app.use(express.json());
@@ -9,6 +10,7 @@ app.use(cors());
 
 // user routes
 app.use('/user/api/v1', userRoute);
+app.use('/user/api/v2', tourRouter);
 
 // basic home route
 app.get('/', (req, res) => {

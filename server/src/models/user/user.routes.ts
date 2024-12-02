@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { createUser, deleteSingleUser, getSingleUser, getUser, updateSingleUser } from './user.controller';
+import {
+    createUser,
+    deleteSingleUser,
+    getSingleUser,
+    getUser,
+    updateSingleUser,
+} from './user.controller';
 
 const userRoute = Router();
 userRoute.post('/create-user', createUser);
