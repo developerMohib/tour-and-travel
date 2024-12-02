@@ -16,8 +16,18 @@ const userSchema = new Schema({
     },
 
     photo: { type: String },
-    role: { type: String, enum: ['user', 'admin'], require: true },
-    userStatus: { type: String, require: true, enum: ['active', 'inactive'] },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        require: true,
+        default: 'user',
+    },
+    userStatus: {
+        type: String,
+        require: true,
+        enum: ['active', 'inactive'],
+        default: 'active',
+    },
 });
 
 const User = model('User', userSchema);
