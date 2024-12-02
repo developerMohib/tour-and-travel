@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import User from './user.model';
+import { createUserService } from './user.services';
 
 const createUser = async (req: Request, res: Response): Promise<void> => {
     try {
-        const payload = req.body;
-        const result = await User.create(payload);
+        const payload = req.body.user;
+        const result = await createUserService(payload);
         res.status(200).json({
             message: 'User created successfully',
             data: result,
@@ -17,4 +17,4 @@ const createUser = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
-export const userController = { createUser };
+export { createUser };
