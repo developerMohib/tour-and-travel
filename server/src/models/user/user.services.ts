@@ -41,7 +41,10 @@ const getSingleUserService = async (id: string) => {
 const updateSingleUserService = async (id: string, data: IUser) => {
     try {
         const userId = new Types.ObjectId(id);
-        const result = await User.findByIdAndUpdate(userId, data);
+        const result = await User.findByIdAndUpdate(userId, data, {
+            new: true,
+            runValidators: true,
+        });
         return result;
     } catch (error) {
         console.log(error);
