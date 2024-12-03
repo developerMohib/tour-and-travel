@@ -42,7 +42,7 @@ const updateASingleTourService = async (
 ): Promise<ITour | null> => {
     try {
         const tourId = new Types.ObjectId(id);
-        const result = await Tour.findByIdAndUpdate(tourId, data,{new:true});
+        const result = await Tour.findByIdAndUpdate(tourId, data,{new:true,runValidators: true,});
         return result as ITour;
     } catch (error) {
         console.log(error);

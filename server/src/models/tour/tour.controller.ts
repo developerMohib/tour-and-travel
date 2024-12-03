@@ -63,7 +63,7 @@ const getATour = async (req: Request, res: Response) => {
 const updateATour = async (req: Request, res: Response) => {
     try {
         const id: string = req.params.id;
-        const data = req.body;
+        const data = req.body.tourData;
         const result = await updateASingleTourService(id, data);
         res.status(200).json({
             success: true,
